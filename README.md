@@ -1,4 +1,4 @@
-# How-to-confugure-TensorFlow-on-Redhat-6.6
+# 如何在RedHat 6.6上配置TensorFlow
 ## 记录我在RedHat 6.6下配置TensorFLow所遇到的坑
 
 我这里是按照[官网](https://www.tensorflow.org/get_started/os_setup)的方法,这里选择的是最方便的pip安装
