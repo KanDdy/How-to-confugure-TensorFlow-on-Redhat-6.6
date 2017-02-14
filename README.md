@@ -36,8 +36,54 @@ sudo cp -P cuda/include/cudnn.h /usr/local/cuda/include
 sudo cp -P cuda/lib64/libcudnn* /usr/local/cuda/lib64
 sudo chmod a+r /usr/local/cuda/include/cudnn.h /usr/local/cuda/lib64/libcudnn*
 ```
+### 3.安装TensorFlow
+直接用如下命令：
+```
+pip install tensorflow-gpu
+```
+系统会直接安装。如果上述命令无法安装。
+则根据下面的地址选择适合自己系统的链接，在终端输入
+```
+# Ubuntu/Linux 64-bit, CPU only, Python 2.7
+$ export TF_BINARY_URL=https://storage.googleapis.com/tensorflow/linux/cpu/tensorflow-0.12.1-cp27-none-linux_x86_64.whl
 
+# Ubuntu/Linux 64-bit, GPU enabled, Python 2.7
+# Requires CUDA toolkit 8.0 and CuDNN v5. For other versions, see "Installing from sources" below.
+$ export TF_BINARY_URL=https://storage.googleapis.com/tensorflow/linux/gpu/tensorflow_gpu-0.12.1-cp27-none-linux_x86_64.whl
 
+# Mac OS X, CPU only, Python 2.7:
+$ export TF_BINARY_URL=https://storage.googleapis.com/tensorflow/mac/cpu/tensorflow-0.12.1-py2-none-any.whl
 
+# Mac OS X, GPU enabled, Python 2.7:
+$ export TF_BINARY_URL=https://storage.googleapis.com/tensorflow/mac/gpu/tensorflow_gpu-0.12.1-py2-none-any.whl
 
+# Ubuntu/Linux 64-bit, CPU only, Python 3.4
+$ export TF_BINARY_URL=https://storage.googleapis.com/tensorflow/linux/cpu/tensorflow-0.12.1-cp34-cp34m-linux_x86_64.whl
 
+# Ubuntu/Linux 64-bit, GPU enabled, Python 3.4
+# Requires CUDA toolkit 8.0 and CuDNN v5. For other versions, see "Installing from sources" below.
+$ export TF_BINARY_URL=https://storage.googleapis.com/tensorflow/linux/gpu/tensorflow_gpu-0.12.1-cp34-cp34m-linux_x86_64.whl
+
+# Ubuntu/Linux 64-bit, CPU only, Python 3.5
+$ export TF_BINARY_URL=https://storage.googleapis.com/tensorflow/linux/cpu/tensorflow-0.12.1-cp35-cp35m-linux_x86_64.whl
+
+# Ubuntu/Linux 64-bit, GPU enabled, Python 3.5
+# Requires CUDA toolkit 8.0 and CuDNN v5. For other versions, see "Installing from sources" below.
+$ export TF_BINARY_URL=https://storage.googleapis.com/tensorflow/linux/gpu/tensorflow_gpu-0.12.1-cp35-cp35m-linux_x86_64.whl
+
+# Mac OS X, CPU only, Python 3.4 or 3.5:
+$ export TF_BINARY_URL=https://storage.googleapis.com/tensorflow/mac/cpu/tensorflow-0.12.1-py3-none-any.whl
+
+# Mac OS X, GPU enabled, Python 3.4 or 3.5:
+$ export TF_BINARY_URL=https://storage.googleapis.com/tensorflow/mac/gpu/tensorflow_gpu-0.12.1-py3-none-any.whl
+```
+然后
+```
+# Python 2
+$ sudo pip install --upgrade $TF_BINARY_URL
+
+# Python 3
+$ sudo pip3 install --upgrade $TF_BINARY_URL
+```
+等待安装完成即可。
+### 4.TensorFlow无法import
