@@ -116,7 +116,8 @@ ll /lib64/libc*
 此时，查看glibc支持的版本可以看到GLIBC的版本已经成功升级到2.19.
 ```
 strings libc.so | grep GLIBC
-```  
+```
+
 **4.2**.GLIBCXX升级  
 继续import,发现又报错这次则提示我缺少GLIBCXX3.4.19,用
 ```
