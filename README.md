@@ -88,8 +88,7 @@ $ sudo pip3 install --upgrade $TF_BINARY_URL
 等待安装完成即可
 
 ### 4.TensorFlow无法import
-**4.1**.GLIBC升级 
-安装完成之后,在验证TensorFlow时,发现无法import,根据报错信息发现是缺少CLIBC版本过低,需要GLIBC>=2.16,而系统自带的是2.12,因此需要升级GLIBC.  GLIBC是GNU发布的LIBC库,即C运行库.GLIBC是Linux系统中最底层的API,几乎其它任何运行库都会依赖于GLIBC(mv,ls等命令就依赖于GLIBC).GLIBC除了封装Linux操作系统所提供的系统服务外,它本身也提供了许多其它一些必要功能服务的实现.按照下面的方法升级GLIBC:
+**4.1**.安装完成之后,在验证TensorFlow时,发现无法import,根据报错信息发现是缺少CLIBC版本过低,需要GLIBC>=2.16,而系统自带的是2.12,因此需要升级GLIBC.  GLIBC是GNU发布的LIBC库,即C运行库.GLIBC是Linux系统中最底层的API,几乎其它任何运行库都会依赖于GLIBC(mv,ls等命令就依赖于GLIBC).GLIBC除了封装Linux操作系统所提供的系统服务外,它本身也提供了许多其它一些必要功能服务的实现.按照下面的方法升级GLIBC:
 ```
 wget http://ftp.gnu.org/gnu/glibc/glibc-2.19.tar.gz
 
@@ -117,8 +116,7 @@ ll /lib64/libc*
 strings libc.so | grep GLIBC
 ```
 
-**4.2**.GLIBCXX升级  
-继续import,发现又报错这次则提示我缺少GLIBCXX3.4.19,用
+**4.2**.继续import,发现又报错这次则提示我缺少GLIBCXX3.4.19,用
 ```
 strings /usr/lib64/libstdc++.so.6|grep GLIBCXX
 ```
