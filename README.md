@@ -123,8 +123,7 @@ strings libc.so | grep GLIBC
 ```
 strings /usr/lib64/libstdc++.so.6|grep GLIBCXX
 ```
-发现系统只支持到3.4.13,因此又需要升级GLIBCXX,实际上是GCC版本过低(系统自带版本为4.4.1)，升级GCC即可  
-下面的方法参照[这里](https://github.com/qiwsir/ITArticles/blob/master/Linux/upgrade_gcc_on_Centos.md)    
+发现系统只支持到3.4.13,因此又需要升级GLIBCXX,实际上是GCC版本过低(系统自带版本为4.4.1)，升级GCC即可.下面的方法参照[这里](https://github.com/qiwsir/ITArticles/blob/master/Linux/upgrade_gcc_on_Centos.md). 
 ```
 下载GCC最新版
 wget http://ftp.gnu.org/gnu/gcc/gcc-4.8.1/gcc-4.8.1.tar.gz
