@@ -15,9 +15,9 @@ make -j8 && make install
 python命令通常存在
 /usr/bin/python和/usr/local/bin/python下面，一般是符号链接，优先使用后者，
 
-如果有2.6和3.4两个版本，并且（用`ll /usr/bin/python*`查看）
-/usr/bin/python --> /usr/bin/python2.6
-/usr/local/bin/python --> /usr/local/bin/python3.4
+如果有2.6和3.4两个版本，并且（用`ll /usr/bin/python*`查看）  
+/usr/bin/python --> /usr/bin/python2.6  
+/usr/local/bin/python --> /usr/local/bin/python3.4  
 此时系统默认使用3.4, 如果想切换至2.6
 直接用 
 ```
@@ -26,9 +26,9 @@ sudo ln -s /usr/local/bin/python /usr/bin/python2.6
 即可，  
 注意到Python3源码中自带pip3，所以不用我们自己装pip了。
 ### 2.安装CUDA和Cudnn
-2.1TensorFLow目前更新至rc0.12.0，推荐CUDA和cudnn版本分别为8.0和v5.1，公司服务器的硬件为GTX 1080，所以这里CUDA版本选择是8.0。从网上下载CUDA的安装包（这里是用的是.run，见[官网](https://developer.nvidia.com/cuda-downloads)）,关于CUDA8.0的安装这里就不赘述了，自行网上搜索即可（建议参照[官方文档](http://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html#axzz4YcvVyZKO)
+**2.1**.TensorFLow目前更新至rc0.12.0，推荐CUDA和cudnn版本分别为8.0和v5.1，公司服务器的硬件为GTX 1080，所以这里CUDA版本选择是8.0。从网上下载CUDA的安装包（这里是用的是.run，见[官网](https://developer.nvidia.com/cuda-downloads)）,关于CUDA8.0的安装这里就不赘述了，自行网上搜索即可（建议参照[官方文档](http://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html#axzz4YcvVyZKO)
 
-2.2cudnn[下载地址](https://developer.nvidia.com/cudnn),下载之后，执行如下操作（假设你的CUDA toolkit已安装至/usr/local/cuda，即默认配置）
+**2.2**.cudnn[下载地址](https://developer.nvidia.com/cudnn),下载之后，执行如下操作（假设你的CUDA toolkit已安装至/usr/local/cuda，即默认配置）
 ```
 tar xvzf cudnn-8.0-linux-x64-v5.1-ga.tgz
 sudo cp -P cuda/include/cudnn.h /usr/local/cuda/include
