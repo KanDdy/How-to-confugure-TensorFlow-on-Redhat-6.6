@@ -88,11 +88,12 @@ $ sudo pip3 install --upgrade $TF_BINARY_URL
 等待安装完成即可.
 
 ### 4.TensorFlow无法import
-**4.1**.GLIBC升级
-安装完成之后,在验证TensorFlow时,发现无法import,根据报错信息发现是缺少CLIBC版本过低,需要GLIBC>=2.16,而系统自带的是2.12,因此需要升级GLIBC.  
+**4.1**.GLIBC升级. 
+安装完成之后,在验证TensorFlow时,发现无法import,根据报错信息发现是缺少CLIBC版本过低,需要GLIBC>=2.16,而系统自带的是2.12,因此需要升级GLIBC.   
 GLIBC是GNU发布的LIBC库,即C运行库.GLIBC是Linux系统中最底层的API,几乎其它任何运行库都会依赖于GLIBC(mv,ls等命令就依赖于GLIBC).GLIBC除了封装Linux操作系统所提供的系统服务外,它本身也提供了许多其它一些必要功能服务的实现.按照下面的方法升级GLIBC：
-wget http://ftp.gnu.org/gnu/glibc/glibc-2.19.tar.gz
 ```
+wget http://ftp.gnu.org/gnu/glibc/glibc-2.19.tar.gz
+
 tar -xvf  glibc-2.19.tar.gz
 
 mkdir glibc-build-2.19
@@ -122,8 +123,7 @@ strings libc.so | grep GLIBC
 strings /usr/lib64/libstdc++.so.6|grep GLIBCXX
 ```  
 发现系统只支持到3.4.13,因此又需要升级GLIBCXX,实际上是GCC版本过低(系统自带版本为4.4.1)，升级GCC即可  
-下面的方法参照[这里](https://github.com/qiwsir/ITArticles/blob/master/Linux/upgrade_gcc_on_Centos.md)  
-  
+下面的方法参照[这里](https://github.com/qiwsir/ITArticles/blob/master/Linux/upgrade_gcc_on_Centos.md)    
 ```
 下载GCC最新版
 wget http://ftp.gnu.org/gnu/gcc/gcc-4.8.1/gcc-4.8.1.tar.gz
