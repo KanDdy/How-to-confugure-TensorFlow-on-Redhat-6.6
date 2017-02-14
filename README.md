@@ -158,7 +158,7 @@ g++ --version     #查看版本
 ～/build_gcc_4.8.1/x86_64-unknown-linux-gnu/libstdc++-v3/src/.libs
 用下面的命令查看GLIBCXX的版本
 ```
-Strings libstdc++.so.6.0.18|grep GLIBCXX
+strings libstdc++.so.6.0.18|grep GLIBCXX
 ```
 一般来说,里面就有满足需要的GLIBCXX版本了
 然后,把该文件拷贝到/usr/lib64下
