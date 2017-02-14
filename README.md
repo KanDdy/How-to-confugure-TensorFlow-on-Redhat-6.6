@@ -122,7 +122,7 @@ strings libc.so | grep GLIBC
 继续import,发现又报错这次则提示我缺少GLIBCXX3.4.19,用
 ```
 strings /usr/lib64/libstdc++.so.6|grep GLIBCXX
-```  
+```
 发现系统只支持到3.4.13,因此又需要升级GLIBCXX,实际上是GCC版本过低(系统自带版本为4.4.1)，升级GCC即可  
 下面的方法参照[这里](https://github.com/qiwsir/ITArticles/blob/master/Linux/upgrade_gcc_on_Centos.md)    
 ```
