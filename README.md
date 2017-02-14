@@ -28,7 +28,7 @@ sudo ln -s /usr/local/bin/python /usr/bin/python2.6
 注意到Python3源码中自带pip3,所以不用我们自己装pip了  
 
 ### 2.安装CUDA和cudnn
-**2.1**.TensorFLow目前更新至rc0.12.0,推荐CUDA和cudnn版本分别为8.0和v5.1,公司服务器的硬件为GTX 1080,所以这里CUDA版本选择是8.0.从网上下载CUDA的安装包(这里是用的是.run，见[官网](https://developer.nvidia.com/cuda-downloads)),关于CUDA8.0的安装这里就不赘述了,自行网上搜索即可(建议参照[官方文档](http://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html#axzz4YcvVyZKO)）
+**2.1**.TensorFLow目前更新至rc0.12.0,推荐CUDA和cudnn版本分别为8.0和v5.1,公司服务器的硬件为GTX 1080,所以这里CUDA版本选择是8.0.从网上下载CUDA的安装包(这里是用的是.run包,见[官网](https://developer.nvidia.com/cuda-downloads)),关于CUDA8.0的安装这里就不赘述了,自行网上搜索即可(建议参照[官方文档](http://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html#axzz4YcvVyZKO)）
 
 **2.2**.cudnn[下载地址](https://developer.nvidia.com/cudnn),下载之后,执行如下操作(假设你的CUDA toolkit已安装至/usr/local/cuda,即默认配置)
 ```
@@ -98,7 +98,7 @@ mkdir glibc-build-2.19
 
 cd glibc-build-2.19
 
-../glibc-2.19/configure  --prefix=/usr --disable-profile --enable-add-ons --with-headers=/usr/include --with-binutils=/usr/bin
+../glibc-2.19/configure  --prefix=/usr **--disable-profile --enable-add-ons --with-headers=/usr/include --with-binutils=/usr/bin**
 
 make & make install  
 ```
@@ -107,11 +107,11 @@ make是成功后,build目录下编译出了一个新的libc.so.6(/glibc-build-2.
 cd glibc-build-2.19 
 ll libc.so.6
 ```
-查看库文件，可以看到2.12的旧库文件还在，多了2.19版本的库文件，而且软链接文件全部指向了2.19版本
+查看库文件,可以看到2.12的旧库文件还在,多了2.19版本的库文件,而且软链接文件全部指向了2.19版本
 ```
 ll /lib64/libc*
 ```
-此时，查看glibc支持的版本可以看到GLIBC的版本已经成功升级到2.19
+此时,查看glibc支持的版本可以看到GLIBC的版本已经成功升级到2.19
 ```
 strings libc.so | grep GLIBC
 ```
