@@ -138,7 +138,7 @@ mkdir build_gcc_4.8.1
 进入刚建立的目录,并执行编译过程
 cd build_gcc_4.8.1
 ../gcc-4.8.1/configure --enable-checking=release --enable-languages=c,c++ --disable-multilib  
-make -j23
+make -j4
 make install
 OK,在build_gcc_4.8.1中将gcc已经安装完成
 
