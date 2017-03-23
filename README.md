@@ -119,6 +119,7 @@ configure: error:
 export LD_LIBRARY_PATH=
 ```
 然后再执行configure操作即可(记得glibc装完之后再`source /etc/profile`一下还原LD_LIBRARY_PATH).
+
 **关于configure这一列的配置,若只是指定prefix,可能会出错,所以最好加上**
 make成功后,build目录下编译出了一个新的libc.so.6(/glibc-build-2.15/libc.so.6),我们会发现这实际上也是一个软连接,真实的lib文件时libc.so 
 ```
