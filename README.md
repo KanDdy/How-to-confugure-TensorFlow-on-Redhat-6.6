@@ -102,7 +102,24 @@ cd glibc-build-2.19
 
 make & make install  
 ```
-**关于configure这一列的配置,若只是制定prefix,可能会出错,所以最好加上**  
+执行`../glibc-2.19/configure  --prefix=/usr --disable-profile --enable-add-ons --with-headers=/usr/include --with-binutils=/usr/bin`时可能出现出现以下错误：
+```
+checking LD_LIBRARY_PATH variable... contains current directory
+configure: error: 
+*** LD_LIBRARY_PATH shouldn't contain the current directory when
+*** building glibc. Please change the environment variable
+*** and run configure again.
+```
+发生改错误的原因是LD_LIBRARY_PATH不能包含当前路径，而通过`echo $LD_LIBRARY_PATH`查看可以发现问题最后一个`:`上面
+```
+/usr/local/mysql/lib:/usr/lib64/mysql:/usr/local/tinyxml:/usr/local/ActiveMQ-CPP/lib:/usr/local/lib:/usr/local/cuda-7.5/lib64:/usr/local/ActiveMQ-CPP/lib:/usr/local/mysql/lib:/usr/lib64/mysql:/usr/local/tinyxml:/usr/local/ActiveMQ-CPP/lib:/usr/local/lib:/usr/local/cuda-7.5/lib64:/usr/local/ActiveMQ-CPP/lib:
+```
+解决方法如下：
+```
+export LD_LIBRARY_PATH=
+```
+然后再执行configure操作即可(记得glibc装完之后再`source /etc/profile`一下还原LD_LIBRARY_PATH).
+**关于configure这一列的配置,若只是指定prefix,可能会出错,所以最好加上**
 make成功后,build目录下编译出了一个新的libc.so.6(/glibc-build-2.15/libc.so.6),我们会发现这实际上也是一个软连接,真实的lib文件时libc.so 
 ```
 cd glibc-build-2.19 
